@@ -21,3 +21,12 @@ void scheduler_print_to_serial(){
     SCHEDULER_PRINT_TO_SERIAL_LAST_RUN = NOW;        
   }
 }
+
+/* 
+ *  @brief Fungsi untuk menjalankan setiap fungsi scheduler yang ada
+ *  @param None
+ *  @return Void
+ */
+void scheduler_run(){
+  scheduler_print_to_serial();    
+}

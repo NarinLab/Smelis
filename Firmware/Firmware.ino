@@ -4,8 +4,8 @@
 #include "DHTesp.h"
 
 /* START DEKLARASI VARIABEL GLOBAL */
-const char* SSID = "secret";
-const char* PWD = "secret";
+const char* SSID = "secrettext";
+const char* PWD = "secrettext";
 #define PIN_RAIN_SENSOR 34
 #define PIN_DHT22 4
 /* STOP DEKLARASI VARIABEL GLOBAL */

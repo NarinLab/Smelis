@@ -1,2 +1,1 @@
-# Smelis
-ESP32 &amp; Internet of Things powered simple micro-climate information system, proudly present by TI UNDIKNAS Gen 18
+Referensi utama adalah jurnal dan proses internasional. Semua referensi harus berasal dari sumber yang paling relevan, terkini, dan minimum referensi adalah 25. Referensi ditulis dalam gaya IEEE. Silakan gunakan format yang konsisten untuk referensi - lihat contoh di bawah ini (9 pt):

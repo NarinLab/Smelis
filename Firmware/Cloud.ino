@@ -21,7 +21,7 @@ void cloud_publish(){
     ThingSpeak.setField(4, data_cahaya);
     ThingSpeak.setField(5, rssi);
     
-    char str_status[64];
+    char str_status[128];
     sprintf(str_status, "Titik embun adalah %s, indeks panas %s, dan tingkat kenyaman %s", 
       data_dht22.dewPoint, data_dht22.heatIndex, data_dht22.cr);
     ThingSpeak.setStatus(str_status);

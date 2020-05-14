@@ -5,6 +5,7 @@
  */
 void sensory_setup(){
   pinMode(PIN_RAIN_SENSOR, INPUT);
+  pinMode(PIN_LIGHT_SENSOR, INPUT);
   dht22.setup(PIN_DHT22, DHTesp::DHT22);  
 }
 

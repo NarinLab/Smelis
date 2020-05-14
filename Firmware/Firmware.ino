@@ -2,11 +2,10 @@
 #include <WiFi.h>
 #include <ArduinoLog.h>
 #include "header.h"
+#include "secret.h"
 #include "DHTesp.h"
 
 /* START DEKLARASI VARIABEL GLOBAL */
-const char* SSID = "Jakanet";
-const char* PWD = "emoganteng";
 #define PIN_RAIN_SENSOR 34
 #define PIN_LIGHT_SENSOR 35
 #define PIN_DHT22 4

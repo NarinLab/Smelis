@@ -19,6 +19,17 @@ byte sensory_get_rain_sensor(){
   return persen;
 }
 
+/*
+ * @brief Fungsi untuk mendapatkan data light sensor
+ * @parameter None
+ * @return Byte
+ */
+byte sensory_get_light_sensor(){
+  int analog = analogRead(PIN_LIGHT_SENSOR); // Pending
+  byte persen = map(analog, 0, 4095, 0, 100);
+  return persen;
+}
+
 /* @brief Fungsi untuk mendapatkan data DHT-22
  * @parameter None
  * @return Bool, DHT22 by Reference

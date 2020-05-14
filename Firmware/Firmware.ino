@@ -1,3 +1,4 @@
+#include "ThingSpeak.h"
 #include <WiFi.h>
 #include <ArduinoLog.h>
 #include "header.h"
@@ -7,11 +8,13 @@
 const char* SSID = "Jakanet";
 const char* PWD = "emoganteng";
 #define PIN_RAIN_SENSOR 34
+#define PIN_LIGHT_SENSOR 35
 #define PIN_DHT22 4
 /* STOP DEKLARASI VARIABEL GLOBAL */
 
 /* START INSTANSIASI OBJEK GLOBAL */
 DHTesp dht22;
+WiFiClient client;
 /* STOP INSTANSIASI OBJEK GLOBAL */
 
 void setup() {
@@ -20,6 +23,7 @@ void setup() {
   Log.begin(LOG_LEVEL_VERBOSE, &Serial);
   networking_setup();
   sensory_setup();
+  cloud_setup();
 }
 
 void loop() {

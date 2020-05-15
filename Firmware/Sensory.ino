@@ -41,6 +41,12 @@ bool sensory_get_dht22(DHT22 &data_dht22){
 
   if(dht22.getStatus() != 0){
      Log.error(F("DHT22 bermasalah, kode error: %s" CR), dht22.getStatusString());
+     data_dht22.suhu = 0;
+     data_dht22.humid = 0;
+     data_dht22.heatIndex = 0;
+     data_dht22.dewPoint = 0;
+     data_dht22.cr = 0;
+     data_dht22.err = dht22.getStatusString();
      return false;
   }
 

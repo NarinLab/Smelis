@@ -20,15 +20,21 @@ void cloud_publish(){
     ThingSpeak.setField(3, data_hujan);
     ThingSpeak.setField(4, data_cahaya);
     ThingSpeak.setField(5, rssi);
-    
+
     char str_status[128];
-    sprintf(str_status, "Titik embun adalah %s, indeks panas %s, dan tingkat kenyaman %s", 
-      data_dht22.dewPoint, data_dht22.heatIndex, data_dht22.cr);
+    if(data_dht22.humid == 0 && data_dht22.suhu == 0 && data_dht22.dewPoint == 0 &&
+      data_dht22.heatIndex == 0 && data_dht22.cr == 0){
+      sprintf(str_status, "Kesalahan pada sensor DHT22: %s", data_dht22.err);
+    }else{
+      sprintf(str_status, "Titik embun adalah %s, indeks panas %s, dan tingkat kenyaman %s", 
+      data_dht22.dewPoint, data_dht22.heatIndex, data_dht22.cr);  
+    }
+   
     ThingSpeak.setStatus(str_status);
 
     int result = ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
     if(result == 200){
-      Log.notice(F("Berhasil mengirim ke Cloud."));
+      Log.notice(F("Berhasil mengirim ke Cloud." CR));
     }else{
       Log.error(F("Gagal mengirim ke Cloud, error code: %d" CR), result);
     }

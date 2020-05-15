@@ -4,4 +4,5 @@ struct DHT22{
     float heatIndex;
     float dewPoint;
     float cr;
+    String err;
 };

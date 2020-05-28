@@ -16,7 +16,7 @@ void sensory_setup(){
  */
 byte sensory_get_rain_sensor(){
   int analog = analogRead(PIN_RAIN_SENSOR); // Pending
-  byte persen = map(analog, 0, 4095, 0, 100);
+  byte persen = map(analog, 0, 4095, 100, 0);
   return persen;
 }
 

@@ -7,16 +7,16 @@
 long SCHEDULER_PRINT_TO_SERIAL_LAST_RUN = 0;
 void scheduler_print_to_serial(){
   long NOW = millis();
-  if(NOW - SCHEDULER_PRINT_TO_SERIAL_LAST_RUN >= 10000){
+  if(NOW - SCHEDULER_PRINT_TO_SERIAL_LAST_RUN >= 1000){
     
     byte data_hujan = sensory_get_rain_sensor();
     byte data_cahaya = sensory_get_light_sensor();
     DHT22 data_dht22;
     sensory_get_dht22(data_dht22);
 
-    Log.verbose(F("Data sensor --> Hujan = %d, DHT22 = Suhu: %F" \ 
-    " | Humid: %F | Heat Index: %F | Dew Point: %F" \ 
-    " | Comfort Ratio: %F | Rain: %d | Light: %d" CR), data_hujan, data_dht22.suhu, data_dht22.humid, 
+    Log.verbose(F("Temp:%F " \ 
+    "Humid:%F HeatIndex:%F DewPoint:%F " \ 
+    "ComfortRatio:%F Rain:%d Light:%d" CR), data_hujan, data_dht22.suhu, data_dht22.humid, 
     data_dht22.heatIndex, data_dht22.dewPoint, data_dht22.cr, data_hujan, data_cahaya);
     
     SCHEDULER_PRINT_TO_SERIAL_LAST_RUN = NOW;        
@@ -32,7 +32,7 @@ void scheduler_print_to_serial(){
 long SCHEDULER_PUBLISH_TO_CLOUD_LAST_RUN = 0;
 void scheduler_publish_to_cloud(){
   long NOW = millis();
-  if(NOW - SCHEDULER_PUBLISH_TO_CLOUD_LAST_RUN >= 30000){
+  if(NOW - SCHEDULER_PUBLISH_TO_CLOUD_LAST_RUN >= 180000){
     cloud_publish();
         
     SCHEDULER_PUBLISH_TO_CLOUD_LAST_RUN = NOW;        
